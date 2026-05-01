@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Batch 1 — Pelacakan Alumni UMM</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; padding: 20px; }
+    h1 { color: #38bdf8; margin-bottom: 10px; }
+    .stats { color: #94a3b8; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { background: #1e293b; padding: 10px; text-align: left; position: sticky; top: 0; z-index: 10; }
+    td { padding: 8px 10px; border-bottom: 1px solid #1e293b; vertical-align: top; }
+    tr:hover { background: #1e293b; }
+    tr.found { background: #064e3b33; }
+    .btn { display: inline-block; padding: 3px 8px; margin: 2px; border-radius: 4px; 
+           text-decoration: none; font-size: 11px; color: white; background: #334155; }
+    .btn:hover { opacity: 0.8; }
+    .btn-blue { background: #0077b5; }
+    .btn-pink { background: #e1306c; }
+    .btn-fb { background: #1877f2; }
+    .btn-green { background: #059669; }
+    .input-sm { display: block; width: 100%; padding: 4px 6px; margin: 2px 0; 
+                background: #1e293b; border: 1px solid #334155; color: #e2e8f0; 
+                border-radius: 4px; font-size: 12px; }
+    .input-sm:focus { border-color: #38bdf8; outline: none; }
+    .save-bar { position: fixed; bottom: 0; left: 0; right: 0; padding: 15px 20px; 
+                background: #1e293b; border-top: 2px solid #38bdf8; display: flex; 
+                justify-content: space-between; align-items: center; z-index: 100; }
+    .save-btn { padding: 10px 30px; background: #38bdf8; color: #0f172a; border: none; 
+                border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; }
+    .save-btn:hover { background: #0ea5e9; }
+    .export-btn { padding: 10px 20px; background: #059669; color: white; border: none; 
+                  border-radius: 6px; cursor: pointer; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h1>🔍 Batch 1 — Pelacakan Alumni UMM</h1>
+  <p class="stats">50 alumni | Klik tombol pencarian → isi data yang ditemukan → Export JSON</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>#</th><th>Nama</th><th>NIM</th><th>Prodi</th><th>Lulus</th><th>Terisi</th><th>Cari</th><th>Data Temuan</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    <tr class="">
+      <td>1</td>
+      <td><strong>Yusuf Hamdani</strong></td>
+      <td>201710010311072</td>
+      <td>Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Yusuf%20Hamdani%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Yusuf%20Hamdani+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Yusuf%20Hamdani+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Yusuf%20Hamdani+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Yusuf%20Hamdani" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110262" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110262" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110262" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110262" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110262" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110262" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110262" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>2</td>
+      <td><strong>Moh. Hadi Wisal</strong></td>
+      <td>201710010311073</td>
+      <td>Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Moh.%20Hadi%20Wisal%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Moh.%20Hadi%20Wisal+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Moh.%20Hadi%20Wisal+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Moh.%20Hadi%20Wisal+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Moh.%20Hadi%20Wisal" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110263" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110263" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110263" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110263" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110263" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110263" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110263" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>3</td>
+      <td><strong>M. Syahid Anwar H</strong></td>
+      <td>201710010311108</td>
+      <td>Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=M.%20Syahid%20Anwar%20H%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=M.%20Syahid%20Anwar%20H+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=M.%20Syahid%20Anwar%20H+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=M.%20Syahid%20Anwar%20H+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/M.%20Syahid%20Anwar%20H" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110264" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110264" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110264" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110264" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110264" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110264" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110264" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>4</td>
+      <td><strong>Agus Herdianto</strong></td>
+      <td>201810010311043</td>
+      <td>Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Agus%20Herdianto%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Agus%20Herdianto+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Agus%20Herdianto+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Agus%20Herdianto+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Agus%20Herdianto" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110265" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110265" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110265" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110265" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110265" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110265" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110265" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>5</td>
+      <td><strong>Dhimas Arya Permady</strong></td>
+      <td>201910010311018</td>
+      <td>Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Dhimas%20Arya%20Permady%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Dhimas%20Arya%20Permady+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Dhimas%20Arya%20Permady+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Dhimas%20Arya%20Permady+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Dhimas%20Arya%20Permady" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110266" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110266" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110266" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110266" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110266" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110266" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110266" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>6</td>
+      <td><strong>Fakhirah</strong></td>
+      <td>201910010311037</td>
+      <td>Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Fakhirah%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Fakhirah+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Fakhirah+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Fakhirah+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Fakhirah" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110267" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110267" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110267" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110267" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110267" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110267" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110267" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>7</td>
+      <td><strong>Cahya Ayu Kamila</strong></td>
+      <td>201910010311062</td>
+      <td>Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Cahya%20Ayu%20Kamila%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Cahya%20Ayu%20Kamila+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Cahya%20Ayu%20Kamila+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Cahya%20Ayu%20Kamila+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Cahya%20Ayu%20Kamila" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110268" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110268" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110268" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110268" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110268" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110268" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110268" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>8</td>
+      <td><strong>Muhammad Yusuf Maimun</strong></td>
+      <td>201910010311065</td>
+      <td>Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Muhammad%20Yusuf%20Maimun%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Yusuf%20Maimun+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Yusuf%20Maimun+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Yusuf%20Maimun+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Muhammad%20Yusuf%20Maimun" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110269" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110269" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110269" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110269" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110269" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110269" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110269" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>9</td>
+      <td><strong>Mufidah Sofyan</strong></td>
+      <td>201910010311083</td>
+      <td>Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Mufidah%20Sofyan%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Mufidah%20Sofyan+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Mufidah%20Sofyan+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Mufidah%20Sofyan+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Mufidah%20Sofyan" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110270" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110270" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110270" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110270" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110270" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110270" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110270" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>10</td>
+      <td><strong>Putri Anggun Bhakti Insanitaqwa</strong></td>
+      <td>201910010311087</td>
+      <td>Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Putri%20Anggun%20Bhakti%20Insanitaqwa%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Putri%20Anggun%20Bhakti%20Insanitaqwa+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Putri%20Anggun%20Bhakti%20Insanitaqwa+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Putri%20Anggun%20Bhakti%20Insanitaqwa+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Putri%20Anggun%20Bhakti%20Insanitaqwa" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110271" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110271" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110271" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110271" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110271" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110271" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110271" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>11</td>
+      <td><strong>M. Ferdy Daryono</strong></td>
+      <td>201910010311095</td>
+      <td>Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=M.%20Ferdy%20Daryono%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=M.%20Ferdy%20Daryono+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=M.%20Ferdy%20Daryono+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=M.%20Ferdy%20Daryono+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/M.%20Ferdy%20Daryono" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110272" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110272" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110272" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110272" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110272" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110272" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110272" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>12</td>
+      <td><strong>Muhamad Farhan</strong></td>
+      <td>201810020311040</td>
+      <td>Hukum Keluarga Islam (Ahwal Syakhshiyyah)</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Muhamad%20Farhan%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Muhamad%20Farhan+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Muhamad%20Farhan+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Muhamad%20Farhan+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Muhamad%20Farhan" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110273" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110273" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110273" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110273" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110273" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110273" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110273" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>13</td>
+      <td><strong>Putri Asri Indah Lestari</strong></td>
+      <td>201910020311002</td>
+      <td>Hukum Keluarga Islam (Ahwal Syakhshiyyah)</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Putri%20Asri%20Indah%20Lestari%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Putri%20Asri%20Indah%20Lestari+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Putri%20Asri%20Indah%20Lestari+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Putri%20Asri%20Indah%20Lestari+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Putri%20Asri%20Indah%20Lestari" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110274" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110274" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110274" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110274" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110274" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110274" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110274" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>14</td>
+      <td><strong>Akbar Zainullah Ilham</strong></td>
+      <td>201910020311021</td>
+      <td>Hukum Keluarga Islam (Ahwal Syakhshiyyah)</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Akbar%20Zainullah%20Ilham%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Akbar%20Zainullah%20Ilham+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Akbar%20Zainullah%20Ilham+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Akbar%20Zainullah%20Ilham+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Akbar%20Zainullah%20Ilham" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110275" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110275" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110275" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110275" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110275" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110275" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110275" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>15</td>
+      <td><strong>Farida Siswani Permatasari</strong></td>
+      <td>201910020311022</td>
+      <td>Hukum Keluarga Islam (Ahwal Syakhshiyyah)</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Farida%20Siswani%20Permatasari%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Farida%20Siswani%20Permatasari+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Farida%20Siswani%20Permatasari+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Farida%20Siswani%20Permatasari+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Farida%20Siswani%20Permatasari" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110276" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110276" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110276" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110276" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110276" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110276" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110276" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>16</td>
+      <td><strong>Ardani Fatham Mubina Filu'lu' Ilmaknun</strong></td>
+      <td>201910020311025</td>
+      <td>Hukum Keluarga Islam (Ahwal Syakhshiyyah)</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Ardani%20Fatham%20Mubina%20Filu'lu'%20Ilmaknun%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Ardani%20Fatham%20Mubina%20Filu'lu'%20Ilmaknun+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Ardani%20Fatham%20Mubina%20Filu'lu'%20Ilmaknun+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Ardani%20Fatham%20Mubina%20Filu'lu'%20Ilmaknun+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Ardani%20Fatham%20Mubina%20Filu'lu'%20Ilmaknun" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110277" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110277" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110277" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110277" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110277" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110277" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110277" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>17</td>
+      <td><strong>Cempaka Sausan Iga Hadi</strong></td>
+      <td>201910020311026</td>
+      <td>Hukum Keluarga Islam (Ahwal Syakhshiyyah)</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Cempaka%20Sausan%20Iga%20Hadi%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Cempaka%20Sausan%20Iga%20Hadi+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Cempaka%20Sausan%20Iga%20Hadi+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Cempaka%20Sausan%20Iga%20Hadi+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Cempaka%20Sausan%20Iga%20Hadi" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110278" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110278" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110278" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110278" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110278" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110278" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110278" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>18</td>
+      <td><strong>Helmy Rizkih Saputra</strong></td>
+      <td>201910020311029</td>
+      <td>Hukum Keluarga Islam (Ahwal Syakhshiyyah)</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Helmy%20Rizkih%20Saputra%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Helmy%20Rizkih%20Saputra+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Helmy%20Rizkih%20Saputra+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Helmy%20Rizkih%20Saputra+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Helmy%20Rizkih%20Saputra" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110279" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110279" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110279" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110279" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110279" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110279" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110279" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>19</td>
+      <td><strong>Rizky Fajar Ritonga</strong></td>
+      <td>201810510311067</td>
+      <td>Ekonomi Syariah</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Rizky%20Fajar%20Ritonga%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Rizky%20Fajar%20Ritonga+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Rizky%20Fajar%20Ritonga+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Rizky%20Fajar%20Ritonga+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Rizky%20Fajar%20Ritonga" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110280" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110280" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110280" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110280" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110280" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110280" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110280" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>20</td>
+      <td><strong>Dzaki Sholahuddin</strong></td>
+      <td>201910510311024</td>
+      <td>Ekonomi Syariah</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Dzaki%20Sholahuddin%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Dzaki%20Sholahuddin+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Dzaki%20Sholahuddin+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Dzaki%20Sholahuddin+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Dzaki%20Sholahuddin" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110281" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110281" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110281" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110281" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110281" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110281" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110281" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>21</td>
+      <td><strong>Muhammad Azra Guardiola Elyanto</strong></td>
+      <td>201910510311025</td>
+      <td>Ekonomi Syariah</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Muhammad%20Azra%20Guardiola%20Elyanto%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Azra%20Guardiola%20Elyanto+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Azra%20Guardiola%20Elyanto+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Azra%20Guardiola%20Elyanto+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Muhammad%20Azra%20Guardiola%20Elyanto" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110282" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110282" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110282" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110282" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110282" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110282" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110282" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>22</td>
+      <td><strong>Muhammad Abuzhar Alghifari</strong></td>
+      <td>201910510311038</td>
+      <td>Ekonomi Syariah</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Muhammad%20Abuzhar%20Alghifari%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Abuzhar%20Alghifari+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Abuzhar%20Alghifari+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Abuzhar%20Alghifari+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Muhammad%20Abuzhar%20Alghifari" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110283" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110283" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110283" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110283" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110283" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110283" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110283" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>23</td>
+      <td><strong>Alya Rufaidah</strong></td>
+      <td>202010510311024</td>
+      <td>Ekonomi Syariah</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Alya%20Rufaidah%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Alya%20Rufaidah+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Alya%20Rufaidah+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Alya%20Rufaidah+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Alya%20Rufaidah" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110284" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110284" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110284" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110284" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110284" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110284" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110284" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>24</td>
+      <td><strong>Feby Tiara. R</strong></td>
+      <td>201910570311003</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Feby%20Tiara.%20R%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Feby%20Tiara.%20R+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Feby%20Tiara.%20R+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Feby%20Tiara.%20R+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Feby%20Tiara.%20R" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110285" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110285" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110285" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110285" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110285" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110285" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110285" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>25</td>
+      <td><strong>Qurrotaa'yun Azhari Hamzah</strong></td>
+      <td>201910570311021</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Qurrotaa'yun%20Azhari%20Hamzah%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Qurrotaa'yun%20Azhari%20Hamzah+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Qurrotaa'yun%20Azhari%20Hamzah+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Qurrotaa'yun%20Azhari%20Hamzah+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Qurrotaa'yun%20Azhari%20Hamzah" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110286" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110286" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110286" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110286" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110286" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110286" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110286" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>26</td>
+      <td><strong>Nikmatus Solihah</strong></td>
+      <td>201910570311030</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Nikmatus%20Solihah%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Nikmatus%20Solihah+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Nikmatus%20Solihah+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Nikmatus%20Solihah+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Nikmatus%20Solihah" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110287" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110287" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110287" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110287" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110287" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110287" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110287" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>27</td>
+      <td><strong>Wulandari</strong></td>
+      <td>201910570311038</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Wulandari%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Wulandari+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Wulandari+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Wulandari+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Wulandari" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110288" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110288" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110288" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110288" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110288" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110288" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110288" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>28</td>
+      <td><strong>Nur Jihan Nabilah Al Muhdhar</strong></td>
+      <td>202010570311004</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Nur%20Jihan%20Nabilah%20Al%20Muhdhar%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Nur%20Jihan%20Nabilah%20Al%20Muhdhar+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Nur%20Jihan%20Nabilah%20Al%20Muhdhar+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Nur%20Jihan%20Nabilah%20Al%20Muhdhar+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Nur%20Jihan%20Nabilah%20Al%20Muhdhar" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110289" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110289" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110289" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110289" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110289" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110289" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110289" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>29</td>
+      <td><strong>Muhammad Zainal Fitri</strong></td>
+      <td>202010570311006</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Muhammad%20Zainal%20Fitri%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Zainal%20Fitri+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Zainal%20Fitri+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Zainal%20Fitri+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Muhammad%20Zainal%20Fitri" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110290" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110290" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110290" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110290" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110290" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110290" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110290" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>30</td>
+      <td><strong>Nur Eka Asti Pratiwi</strong></td>
+      <td>202010570311007</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Nur%20Eka%20Asti%20Pratiwi%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Nur%20Eka%20Asti%20Pratiwi+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Nur%20Eka%20Asti%20Pratiwi+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Nur%20Eka%20Asti%20Pratiwi+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Nur%20Eka%20Asti%20Pratiwi" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110291" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110291" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110291" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110291" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110291" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110291" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110291" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>31</td>
+      <td><strong>Zimmy Altasyah Putra</strong></td>
+      <td>202010570311010</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Zimmy%20Altasyah%20Putra%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Zimmy%20Altasyah%20Putra+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Zimmy%20Altasyah%20Putra+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Zimmy%20Altasyah%20Putra+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Zimmy%20Altasyah%20Putra" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110292" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110292" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110292" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110292" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110292" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110292" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110292" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>32</td>
+      <td><strong>Zalfa' Aqilah Al Huda</strong></td>
+      <td>202010570311011</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Zalfa'%20Aqilah%20Al%20Huda%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Zalfa'%20Aqilah%20Al%20Huda+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Zalfa'%20Aqilah%20Al%20Huda+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Zalfa'%20Aqilah%20Al%20Huda+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Zalfa'%20Aqilah%20Al%20Huda" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110293" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110293" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110293" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110293" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110293" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110293" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110293" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>33</td>
+      <td><strong>Moh. Sabrin Mangsa</strong></td>
+      <td>202010570311013</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Moh.%20Sabrin%20Mangsa%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Moh.%20Sabrin%20Mangsa+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Moh.%20Sabrin%20Mangsa+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Moh.%20Sabrin%20Mangsa+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Moh.%20Sabrin%20Mangsa" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110294" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110294" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110294" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110294" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110294" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110294" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110294" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>34</td>
+      <td><strong>Binti Chopifah</strong></td>
+      <td>202010570311020</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Binti%20Chopifah%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Binti%20Chopifah+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Binti%20Chopifah+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Binti%20Chopifah+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Binti%20Chopifah" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110295" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110295" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110295" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110295" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110295" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110295" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110295" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>35</td>
+      <td><strong>Muhammad Marva</strong></td>
+      <td>202010570311024</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Muhammad%20Marva%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Marva+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Marva+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Marva+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Muhammad%20Marva" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110296" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110296" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110296" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110296" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110296" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110296" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110296" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>36</td>
+      <td><strong>Ramadhan Baharrizqi</strong></td>
+      <td>202010570311026</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Ramadhan%20Baharrizqi%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Ramadhan%20Baharrizqi+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Ramadhan%20Baharrizqi+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Ramadhan%20Baharrizqi+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Ramadhan%20Baharrizqi" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110297" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110297" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110297" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110297" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110297" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110297" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110297" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>37</td>
+      <td><strong>Muhammad Baharudin Yusuf Ilham</strong></td>
+      <td>202010570311028</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Muhammad%20Baharudin%20Yusuf%20Ilham%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Baharudin%20Yusuf%20Ilham+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Baharudin%20Yusuf%20Ilham+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Muhammad%20Baharudin%20Yusuf%20Ilham+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Muhammad%20Baharudin%20Yusuf%20Ilham" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110298" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110298" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110298" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110298" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110298" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110298" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110298" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>38</td>
+      <td><strong>Kiki Kharisma Dysi Rasiana</strong></td>
+      <td>202010570311029</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Kiki%20Kharisma%20Dysi%20Rasiana%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Kiki%20Kharisma%20Dysi%20Rasiana+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Kiki%20Kharisma%20Dysi%20Rasiana+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Kiki%20Kharisma%20Dysi%20Rasiana+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Kiki%20Kharisma%20Dysi%20Rasiana" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110299" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110299" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110299" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110299" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110299" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110299" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110299" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>39</td>
+      <td><strong>Sukma Indah Yuliana</strong></td>
+      <td>202010570311036</td>
+      <td>Pendidikan Bahasa Arab</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Sukma%20Indah%20Yuliana%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Sukma%20Indah%20Yuliana+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Sukma%20Indah%20Yuliana+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Sukma%20Indah%20Yuliana+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Sukma%20Indah%20Yuliana" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110300" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110300" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110300" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110300" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110300" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110300" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110300" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>40</td>
+      <td><strong>Muhtadawati</strong></td>
+      <td>202120290211058</td>
+      <td>Magister - Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Muhtadawati%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Muhtadawati+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Muhtadawati+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Muhtadawati+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Muhtadawati" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110301" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110301" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110301" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110301" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110301" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110301" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110301" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>41</td>
+      <td><strong>Junaina Bintang Novita</strong></td>
+      <td>202210290211001</td>
+      <td>Magister - Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Junaina%20Bintang%20Novita%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Junaina%20Bintang%20Novita+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Junaina%20Bintang%20Novita+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Junaina%20Bintang%20Novita+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Junaina%20Bintang%20Novita" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110302" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110302" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110302" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110302" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110302" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110302" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110302" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>42</td>
+      <td><strong>Mashudi Malik</strong></td>
+      <td>202210290211003</td>
+      <td>Magister - Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Mashudi%20Malik%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Mashudi%20Malik+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Mashudi%20Malik+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Mashudi%20Malik+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Mashudi%20Malik" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110303" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110303" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110303" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110303" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110303" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110303" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110303" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>43</td>
+      <td><strong>Dedi Darmawan</strong></td>
+      <td>202210290211005</td>
+      <td>Magister - Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Dedi%20Darmawan%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Dedi%20Darmawan+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Dedi%20Darmawan+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Dedi%20Darmawan+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Dedi%20Darmawan" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110304" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110304" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110304" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110304" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110304" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110304" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110304" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>44</td>
+      <td><strong>Ahmad Noor Rani</strong></td>
+      <td>202210290211006</td>
+      <td>Magister - Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Ahmad%20Noor%20Rani%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Ahmad%20Noor%20Rani+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Ahmad%20Noor%20Rani+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Ahmad%20Noor%20Rani+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Ahmad%20Noor%20Rani" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110305" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110305" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110305" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110305" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110305" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110305" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110305" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>45</td>
+      <td><strong>Irmayanti</strong></td>
+      <td>202210290211007</td>
+      <td>Magister - Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Irmayanti%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Irmayanti+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Irmayanti+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Irmayanti+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Irmayanti" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110306" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110306" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110306" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110306" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110306" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110306" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110306" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>46</td>
+      <td><strong>Murdin</strong></td>
+      <td>202210290211009</td>
+      <td>Magister - Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Murdin%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Murdin+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Murdin+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Murdin+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Murdin" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110307" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110307" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110307" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110307" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110307" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110307" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110307" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>47</td>
+      <td><strong>Nuraftah</strong></td>
+      <td>202210290211010</td>
+      <td>Magister - Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Nuraftah%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Nuraftah+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Nuraftah+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Nuraftah+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Nuraftah" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110308" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110308" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110308" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110308" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110308" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110308" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110308" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>48</td>
+      <td><strong>Jauharotul Makniyah</strong></td>
+      <td>201710520111007</td>
+      <td>Doktor - Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Jauharotul%20Makniyah%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Jauharotul%20Makniyah+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Jauharotul%20Makniyah+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Jauharotul%20Makniyah+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Jauharotul%20Makniyah" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110309" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110309" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110309" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110309" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110309" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110309" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110309" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>49</td>
+      <td><strong>Selamat</strong></td>
+      <td>201920520111014</td>
+      <td>Doktor - Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Selamat%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Selamat+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Selamat+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Selamat+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Selamat" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110310" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110310" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110310" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110310" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110310" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110310" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110310" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="">
+      <td>50</td>
+      <td><strong>Kamalil Mustofa</strong></td>
+      <td>202010520111004</td>
+      <td>Doktor - Pendidikan Agama Islam</td>
+      <td>2024</td>
+      <td>0/8</td>
+      <td>
+        <a href="https://www.google.com/search?q=Kamalil%20Mustofa%20Universitas%20Muhammadiyah%20Malang" target="_blank" class="btn">🔍 Google</a>
+        <a href="https://www.google.com/search?q=Kamalil%20Mustofa+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-blue">💼 LinkedIn</a>
+        <a href="https://www.google.com/search?q=Kamalil%20Mustofa+site%3Ainstagram.com+UMM" target="_blank" class="btn btn-pink">📷 IG</a>
+        <a href="https://www.google.com/search?q=Kamalil%20Mustofa+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22" target="_blank" class="btn btn-fb">📘 FB</a>
+        <a href="https://pddikti.kemdiktisaintek.go.id/search/mhs/Kamalil%20Mustofa" target="_blank" class="btn btn-green">🎓 PDDIKTI</a>
+      </td>
+      <td>
+        <input type="text" placeholder="LinkedIn URL" data-field="linkedin" data-id="110311" class="input-sm" />
+        <input type="text" placeholder="IG Username" data-field="instagram" data-id="110311" class="input-sm" />
+        <input type="text" placeholder="Email" data-field="email" data-id="110311" class="input-sm" />
+        <input type="text" placeholder="No HP" data-field="noHp" data-id="110311" class="input-sm" />
+        <input type="text" placeholder="Tempat Kerja" data-field="tempatBekerja" data-id="110311" class="input-sm" />
+        <input type="text" placeholder="Posisi" data-field="posisi" data-id="110311" class="input-sm" />
+        <select data-field="kategoriKarier" data-id="110311" class="input-sm">
+          <option value="">-- Kategori --</option>
+          <option value="PNS">PNS</option>
+          <option value="Swasta">Swasta</option>
+          <option value="Wirausaha">Wirausaha</option>
+        </select>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="save-bar">
+    <span id="statusText">Belum ada perubahan</span>
+    <div>
+      <button class="export-btn" onclick="exportData()">📥 Export JSON</button>
+    </div>
+  </div>
+
+  <div style="height: 60px;"></div>
+
+  <script>
+    const batchData = [{"id":110262,"nama":"Yusuf Hamdani","nim":"201710010311072","fakultas":"Agama Islam","jurusan":"Pendidikan Agama Islam","tahunMasuk":"2017","tanggalLulus":"3 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110263,"nama":"Moh. Hadi Wisal","nim":"201710010311073","fakultas":"Agama Islam","jurusan":"Pendidikan Agama Islam","tahunMasuk":"2017","tanggalLulus":"3 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110264,"nama":"M. Syahid Anwar H","nim":"201710010311108","fakultas":"Agama Islam","jurusan":"Pendidikan Agama Islam","tahunMasuk":"2017","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110265,"nama":"Agus Herdianto","nim":"201810010311043","fakultas":"Agama Islam","jurusan":"Pendidikan Agama Islam","tahunMasuk":"2018","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110266,"nama":"Dhimas Arya Permady","nim":"201910010311018","fakultas":"Agama Islam","jurusan":"Pendidikan Agama Islam","tahunMasuk":"2019","tanggalLulus":"3 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110267,"nama":"Fakhirah","nim":"201910010311037","fakultas":"Agama Islam","jurusan":"Pendidikan Agama Islam","tahunMasuk":"2019","tanggalLulus":"3 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110268,"nama":"Cahya Ayu Kamila","nim":"201910010311062","fakultas":"Agama Islam","jurusan":"Pendidikan Agama Islam","tahunMasuk":"2019","tanggalLulus":"20 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110269,"nama":"Muhammad Yusuf Maimun","nim":"201910010311065","fakultas":"Agama Islam","jurusan":"Pendidikan Agama Islam","tahunMasuk":"2019","tanggalLulus":"3 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110270,"nama":"Mufidah Sofyan","nim":"201910010311083","fakultas":"Agama Islam","jurusan":"Pendidikan Agama Islam","tahunMasuk":"2019","tanggalLulus":"3 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110271,"nama":"Putri Anggun Bhakti Insanitaqwa","nim":"201910010311087","fakultas":"Agama Islam","jurusan":"Pendidikan Agama Islam","tahunMasuk":"2019","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110272,"nama":"M. Ferdy Daryono","nim":"201910010311095","fakultas":"Agama Islam","jurusan":"Pendidikan Agama Islam","tahunMasuk":"2019","tanggalLulus":"3 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110273,"nama":"Muhamad Farhan","nim":"201810020311040","fakultas":"Agama Islam","jurusan":"Hukum Keluarga Islam (Ahwal Syakhshiyyah)","tahunMasuk":"2018","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110274,"nama":"Putri Asri Indah Lestari","nim":"201910020311002","fakultas":"Agama Islam","jurusan":"Hukum Keluarga Islam (Ahwal Syakhshiyyah)","tahunMasuk":"2019","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110275,"nama":"Akbar Zainullah Ilham","nim":"201910020311021","fakultas":"Agama Islam","jurusan":"Hukum Keluarga Islam (Ahwal Syakhshiyyah)","tahunMasuk":"2019","tanggalLulus":"5 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110276,"nama":"Farida Siswani Permatasari","nim":"201910020311022","fakultas":"Agama Islam","jurusan":"Hukum Keluarga Islam (Ahwal Syakhshiyyah)","tahunMasuk":"2019","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110277,"nama":"Ardani Fatham Mubina Filu'lu' Ilmaknun","nim":"201910020311025","fakultas":"Agama Islam","jurusan":"Hukum Keluarga Islam (Ahwal Syakhshiyyah)","tahunMasuk":"2019","tanggalLulus":"5 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110278,"nama":"Cempaka Sausan Iga Hadi","nim":"201910020311026","fakultas":"Agama Islam","jurusan":"Hukum Keluarga Islam (Ahwal Syakhshiyyah)","tahunMasuk":"2019","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110279,"nama":"Helmy Rizkih Saputra","nim":"201910020311029","fakultas":"Agama Islam","jurusan":"Hukum Keluarga Islam (Ahwal Syakhshiyyah)","tahunMasuk":"2019","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110280,"nama":"Rizky Fajar Ritonga","nim":"201810510311067","fakultas":"Agama Islam","jurusan":"Ekonomi Syariah","tahunMasuk":"2018","tanggalLulus":"20 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110281,"nama":"Dzaki Sholahuddin","nim":"201910510311024","fakultas":"Agama Islam","jurusan":"Ekonomi Syariah","tahunMasuk":"2019","tanggalLulus":"20 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110282,"nama":"Muhammad Azra Guardiola Elyanto","nim":"201910510311025","fakultas":"Agama Islam","jurusan":"Ekonomi Syariah","tahunMasuk":"2019","tanggalLulus":"20 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110283,"nama":"Muhammad Abuzhar Alghifari","nim":"201910510311038","fakultas":"Agama Islam","jurusan":"Ekonomi Syariah","tahunMasuk":"2019","tanggalLulus":"20 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110284,"nama":"Alya Rufaidah","nim":"202010510311024","fakultas":"Agama Islam","jurusan":"Ekonomi Syariah","tahunMasuk":"2020","tanggalLulus":"20 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110285,"nama":"Feby Tiara. R","nim":"201910570311003","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2019","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110286,"nama":"Qurrotaa'yun Azhari Hamzah","nim":"201910570311021","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2019","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110287,"nama":"Nikmatus Solihah","nim":"201910570311030","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2019","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110288,"nama":"Wulandari","nim":"201910570311038","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2019","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110289,"nama":"Nur Jihan Nabilah Al Muhdhar","nim":"202010570311004","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2020","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110290,"nama":"Muhammad Zainal Fitri","nim":"202010570311006","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2020","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110291,"nama":"Nur Eka Asti Pratiwi","nim":"202010570311007","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2020","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110292,"nama":"Zimmy Altasyah Putra","nim":"202010570311010","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2020","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110293,"nama":"Zalfa' Aqilah Al Huda","nim":"202010570311011","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2020","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110294,"nama":"Moh. Sabrin Mangsa","nim":"202010570311013","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2020","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110295,"nama":"Binti Chopifah","nim":"202010570311020","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2020","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110296,"nama":"Muhammad Marva","nim":"202010570311024","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2020","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110297,"nama":"Ramadhan Baharrizqi","nim":"202010570311026","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2020","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110298,"nama":"Muhammad Baharudin Yusuf Ilham","nim":"202010570311028","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2020","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110299,"nama":"Kiki Kharisma Dysi Rasiana","nim":"202010570311029","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2020","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110300,"nama":"Sukma Indah Yuliana","nim":"202010570311036","fakultas":"Agama Islam","jurusan":"Pendidikan Bahasa Arab","tahunMasuk":"2020","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110301,"nama":"Muhtadawati","nim":"202120290211058","fakultas":"Pascasarjana","jurusan":"Magister - Pendidikan Agama Islam","tahunMasuk":"2021","tanggalLulus":"20 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110302,"nama":"Junaina Bintang Novita","nim":"202210290211001","fakultas":"Pascasarjana","jurusan":"Magister - Pendidikan Agama Islam","tahunMasuk":"2022","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110303,"nama":"Mashudi Malik","nim":"202210290211003","fakultas":"Pascasarjana","jurusan":"Magister - Pendidikan Agama Islam","tahunMasuk":"2022","tanggalLulus":"12 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110304,"nama":"Dedi Darmawan","nim":"202210290211005","fakultas":"Pascasarjana","jurusan":"Magister - Pendidikan Agama Islam","tahunMasuk":"2022","tanggalLulus":"20 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110305,"nama":"Ahmad Noor Rani","nim":"202210290211006","fakultas":"Pascasarjana","jurusan":"Magister - Pendidikan Agama Islam","tahunMasuk":"2022","tanggalLulus":"20 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110306,"nama":"Irmayanti","nim":"202210290211007","fakultas":"Pascasarjana","jurusan":"Magister - Pendidikan Agama Islam","tahunMasuk":"2022","tanggalLulus":"20 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110307,"nama":"Murdin","nim":"202210290211009","fakultas":"Pascasarjana","jurusan":"Magister - Pendidikan Agama Islam","tahunMasuk":"2022","tanggalLulus":"20 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110308,"nama":"Nuraftah","nim":"202210290211010","fakultas":"Pascasarjana","jurusan":"Magister - Pendidikan Agama Islam","tahunMasuk":"2022","tanggalLulus":"18 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110309,"nama":"Jauharotul Makniyah","nim":"201710520111007","fakultas":"Pascasarjana","jurusan":"Doktor - Pendidikan Agama Islam","tahunMasuk":"2017","tanggalLulus":"19 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110310,"nama":"Selamat","nim":"201920520111014","fakultas":"Pascasarjana","jurusan":"Doktor - Pendidikan Agama Islam","tahunMasuk":"2019","tanggalLulus":"6 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""},{"id":110311,"nama":"Kamalil Mustofa","nim":"202010520111004","fakultas":"Pascasarjana","jurusan":"Doktor - Pendidikan Agama Islam","tahunMasuk":"2020","tanggalLulus":"18 Januari 2024","tahunLulus":"2024","status":"Belum Dilacak","email":"","noHp":"","linkedin":"","instagram":"","facebook":"","tiktok":"","tempatBekerja":"","alamatBekerja":"","posisi":"","kategoriKarier":"","sosialTempatKerja":""}];
+    
+    // Track changes
+    document.querySelectorAll('.input-sm').forEach(el => {
+      el.addEventListener('change', () => {
+        const id = parseInt(el.dataset.id);
+        const field = el.dataset.field;
+        const value = el.value.trim();
+        const item = batchData.find(a => a.id === id);
+        if (item) {
+          item[field] = value;
+          if (value) item.status = "Teridentifikasi";
+          document.getElementById('statusText').textContent = 
+            'Ada perubahan belum di-export (' + new Date().toLocaleTimeString() + ')';
+        }
+      });
+    });
+
+    function exportData() {
+      const enriched = batchData.filter(a => {
+        return a.linkedin || a.instagram || a.facebook || a.tiktok || 
+               a.email || a.noHp || a.tempatBekerja || a.posisi;
+      });
+      
+      const blob = new Blob([JSON.stringify(enriched, null, 2)], {type: 'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'batch_1_enriched.json';
+      a.click();
+      URL.revokeObjectURL(url);
+      document.getElementById('statusText').textContent = 
+        'Exported ' + enriched.length + ' records enriched!';
+    }
+  </script>
+</body>
+</html>

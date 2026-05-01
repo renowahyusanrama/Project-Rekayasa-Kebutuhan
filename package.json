@@ -15,9 +15,16 @@
     "pipeline:dedupe": "node scripts/dedupe.js",
     "pipeline:metrics": "node scripts/compute_metrics.js",
     "pipeline:sample": "node scripts/generate_sample.js",
-    "pipeline:enrich-stub": "node scripts/enrich_stub.js"
+    "pipeline:enrich-stub": "node scripts/enrich_stub.js",
+    "pipeline:convert": "node scripts/convert_xlsx_to_json.js",
+    "pipeline:enrich": "node scripts/auto_enrich.js",
+    "pipeline:enrich-stats": "node scripts/auto_enrich.js --stats",
+    "pipeline:merge": "node scripts/merge_enriched.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.105.1"
+  },
+  "devDependencies": {
+    "xlsx": "^0.18.5"
   }
 }

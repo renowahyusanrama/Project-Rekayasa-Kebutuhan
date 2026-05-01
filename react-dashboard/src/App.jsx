@@ -68,7 +68,7 @@ export default function App() {
       const { data, count, error } = await supabase
         .from("alumni")
         .select("*", { count: "exact" })
-        .or(`name.ilike.%${keyword}%,nim.ilike.%${keyword}%`)
+        .or(`name.ilike.%${keyword}%,nim.ilike.%${keyword}%,jurusan.ilike.%${keyword}%,fakultas.ilike.%${keyword}%,email.ilike.%${keyword}%`)
         .range(from, to);
 
       console.log("QUERY RESULT:", data, error);
@@ -78,11 +78,16 @@ export default function App() {
         setTotalCount(count || 0);
         setTotalPages(Math.ceil((count || 0) / PAGE_SIZE));
 
+        // Compute real stats from returned data
+        const identified = (data || []).filter(d => d.status === "Teridentifikasi").length;
+        const verify = (data || []).filter(d => d.status === "Perlu Verifikasi").length;
+        const hasContact = (data || []).filter(d => d.email || d.noHp || d.linkedin || d.instagram).length;
+
         setStats([
           { label: "Total Alumni", value: count || 0 },
-          { label: "Alumni Teridentifikasi", value: "-" },
-          { label: "Perlu Verifikasi", value: "-" },
-          { label: "Kontak Tersedia", value: "-" },
+          { label: "Alumni Teridentifikasi", value: identified },
+          { label: "Perlu Verifikasi", value: verify },
+          { label: "Kontak Tersedia", value: hasContact },
         ]);
       } else {
         console.error(error);

@@ -49,15 +49,14 @@ export default function AlumniDetailPanel({ alumni, isLoading, hasSearchQuery })
         />
       ) : (
         <div className="space-y-5 p-5">
+          {/* Identity Card */}
           <div className="rounded-[24px] border border-[#eadfce] bg-[#f8f3eb] p-4">
             <div className="flex flex-col gap-3">
               <div className="flex flex-wrap gap-2">
-                <Badge text={alumni.status} className={statusTone(alumni.status)} />
-                <Badge text={alumni.validasiStatus} className={validationTone(alumni.validasiStatus)} />
-                <Badge text={alumni.verifikasiStatus} className={statusTone(alumni.status)} />
+                <Badge text={alumni.status || "Belum Dilacak"} className={statusTone(alumni.status)} />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-[#16243a]">{alumni.nama}</h3>
+                <h3 className="text-lg font-semibold text-[#16243a]">{alumni.name || alumni.nama}</h3>
                 <p className="mt-1 text-sm text-slate-600">
                   {fallbackText(alumni.nim)} · {fallbackText(alumni.fakultas)} · {fallbackText(alumni.jurusan)}
                 </p>
@@ -68,35 +67,80 @@ export default function AlumniDetailPanel({ alumni, isLoading, hasSearchQuery })
             </div>
           </div>
 
-          <Notice text={alumni.privacyMessage} />
+          {/* Search Buttons - Quick Lookup (generated from name) */}
+          {(() => {
+            const alumniName = alumni.name || alumni.nama || "";
+            const nameEnc = encodeURIComponent(alumniName);
+            const baseEnc = encodeURIComponent(`${alumniName} Universitas Muhammadiyah Malang`);
+            const urls = {
+              google: `https://www.google.com/search?q=${baseEnc}`,
+              linkedin: `https://www.google.com/search?q=${nameEnc}+site%3Alinkedin.com+%22Universitas+Muhammadiyah+Malang%22`,
+              instagram: `https://www.google.com/search?q=${nameEnc}+site%3Ainstagram.com+UMM`,
+              facebook: `https://www.google.com/search?q=${nameEnc}+site%3Afacebook.com+%22Universitas+Muhammadiyah+Malang%22`,
+              pddikti: `https://pddikti.kemdiktisaintek.go.id/search/mhs/${nameEnc}`,
+            };
+            return (
+              <div className="rounded-[24px] border border-[#d0e8f5] bg-[#edf6fc] p-4">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#2563eb]">
+                  🔍 Cari Alumni di Internet
+                </p>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Klik tombol di bawah untuk mencari data alumni di platform masing-masing.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <SearchButton label="🔍 Google" url={urls.google} color="bg-[#4285f4] hover:bg-[#3275e4]" />
+                  <SearchButton label="💼 LinkedIn" url={urls.linkedin} color="bg-[#0077b5] hover:bg-[#006699]" />
+                  <SearchButton label="📷 Instagram" url={urls.instagram} color="bg-[#e1306c] hover:bg-[#c2255c]" />
+                  <SearchButton label="📘 Facebook" url={urls.facebook} color="bg-[#1877f2] hover:bg-[#1565c0]" />
+                  <SearchButton label="🎓 PDDIKTI" url={urls.pddikti} color="bg-[#059669] hover:bg-[#047857]" />
+                </div>
+              </div>
+            );
+          })()}
 
+          {/* Contact & Social Media */}
           <DetailGroup
             title="Kontak dan Sosial Media"
             desc="Kontak detail hanya dibuka penuh untuk data yang sudah teridentifikasi."
             items={[
-              ["Email", alumni.emailDisplay],
-              ["No HP", alumni.noHpDisplay],
-              ["LinkedIn", alumni.linkedinDisplay],
-              ["Instagram", alumni.instagramDisplay],
-              ["Facebook", alumni.facebookDisplay],
-              ["TikTok", alumni.tiktokDisplay]
+              ["Email", alumni.email],
+              ["No HP", alumni.noHp],
+              ["LinkedIn", alumni.linkedin],
+              ["Instagram", alumni.instagram],
+              ["Facebook", alumni.facebook],
+              ["TikTok", alumni.tiktok]
             ]}
           />
 
+          {/* Employment Data */}
           <DetailGroup
             title="Data Pekerjaan"
             desc="Informasi pekerjaan mendukung proses validasi dan verifikasi tracer alumni."
             items={[
               ["Tempat Bekerja", alumni.tempatBekerja],
               ["Posisi", alumni.posisi],
-              ["Kategori", alumni.kategoriKarier || "Belum tersedia"],
-              ["Alamat Bekerja", alumni.alamatBekerjaDisplay],
-              ["Sosial Media Tempat Kerja", alumni.sosialTempatKerjaDisplay]
+              ["Kategori Karier", alumni.kategoriKarier],
+              ["Alamat Bekerja", alumni.alamatBekerja],
+              ["Sosial Media Tempat Kerja", alumni.sosialTempatKerja || alumni.workplace_social]
             ]}
           />
         </div>
       )}
     </section>
+  );
+}
+
+function SearchButton({ label, url, color }) {
+  if (!url) return null;
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center rounded-xl px-3 py-2 text-xs font-semibold text-white transition ${color}`}
+    >
+      {label}
+    </a>
   );
 }
 
