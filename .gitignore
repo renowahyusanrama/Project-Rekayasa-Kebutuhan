@@ -1,0 +1,7 @@
+node_modules/
+.env
+.DS_Store
+
+# Ignore generated normalized data (large files)
+data/normalized_alumni.json
+outputs/normalized_alumni.csv

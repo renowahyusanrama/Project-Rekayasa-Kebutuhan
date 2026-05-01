@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Pelacakan Alumni</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <img class="logo-img" src="logo-umm.png" alt="Logo UMM" />
+      <h1>Sistem Pelacakan Alumni</h1>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="brand-hero">
+        <h1>Pelacakan Mahasiswa</h1>
+        <p class="hero-sub">Pencarian alumni, validasi data, dan akses detail terkontrol.</p>
+      </div>
+
+      <div class="hero-search">
+        <div class="search-bar">
+          <select class="btn ghost" id="heroFilter"> 
+            <option>SEMUA</option>
+          </select>
+          <input type="text" id="searchName" placeholder="Cari berdasarkan Nama/NIM..." />
+          <button id="searchBtn" class="btn" type="button">🔍</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="notice">
+    <strong>Peringatan:</strong> Semua data ini hanya untuk kepentingan pembelajaran dan dilarang disebarluaskan untuk kepentingan apa pun.
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <h2 class="sidebar-title">Menu</h2>
+      <nav class="sidebar-nav">
+        <a class="nav-item active" href="#dashboard">Dashboard</a>
+        <a class="nav-item" href="#data-alumni">Data Alumni</a>
+        <a class="nav-item" href="#tambah-alumni">Tambah Alumni</a></nav>
+      <div class="sidebar-actions">
+        <button id="authButton" class="btn ghost" type="button">Login Admin</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section id="dashboard" class="stats-grid">
+        <div class="stat-card">
+          <p>Total Alumni</p>
+          <h3 id="totalCount">0</h3>
+        </div>
+        <div class="stat-card">
+          <p>Alumni Teridentifikasi</p>
+          <h3 id="identifiedCount">0</h3>
+        </div>
+        <div class="stat-card">
+          <p>Perlu Verifikasi</p>
+          <h3 id="verifyCount">0</h3>
+        </div>
+        <div class="stat-card">
+          <p>Belum Dilacak</p>
+          <h3 id="untrackedCount">0</h3>
+        </div>
+      </section>
+
+      <section id="data-alumni" class="card">
+        <h2>Data Alumni</h2>
+        <p class="section-subtitle">Halaman ini hanya menampilkan data. Tambah dan edit dilakukan di menu Tambah Alumni.</p>
+
+        <!-- Search moved to hero for quick access; keep reset button for table views -->
+        <div style="margin-bottom:12px">
+          <button id="resetBtn" class="btn ghost" type="button">Tampilkan Semua</button>
+        </div>
+
+        <div class="table-wrapper">
+          <table id="alumniTable">
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>NIM</th>
+                <th>Fakultas</th>
+                <th>Program Studi</th>
+                <th>Tahun Masuk</th>
+                <th>Tanggal Lulus</th>
+                <th>Tahun Lulus</th>
+                <th>Email</th>
+                <th>No HP</th>
+                <th>LinkedIn</th>
+                <th>Instagram</th>
+                <th>Facebook</th>
+                <th>TikTok</th>
+                <th>Posisi</th>
+                <th>Tempat Bekerja</th>
+                <th>Alamat Bekerja</th>
+                <th>Status Pekerjaan</th>
+                <th>Sosmed Tempat Bekerja</th>
+                <th>Status Pelacakan</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="20" class="empty">Belum ada data alumni.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <button id="prevPage" type="button">Sebelumnya</button>
+          <span id="pageInfo">Halaman 1 dari 1</span>
+          <button id="nextPage" type="button">Berikutnya</button>
+        </div>
+      </section>
+
+      <section id="tambah-alumni" class="card">
+        <h2>Tambah Data Alumni</h2>
+        <p id="loginHint" class="status warning">Silakan login sebagai admin untuk mengelola data alumni.</p>
+        <form id="alumniForm" class="form-grid">
+          <div class="form-section">
+            <h3>Identitas Alumni</h3>
+            <p>Isi data dasar alumni sesuai dokumen akademik.</p>
+          </div>
+
+          <div class="field">
+            <label for="name">Nama</label>
+            <input type="text" id="name" name="name" placeholder="Contoh: Rina Putri" required />
+          </div>
+
+          <div class="field">
+            <label for="studentId">NIM</label>
+            <input type="text" id="studentId" name="studentId" placeholder="Contoh: 202012345" />
+          </div>
+
+          <div class="field">
+            <label for="faculty">Fakultas</label>
+            <input type="text" id="faculty" name="faculty" placeholder="Contoh: Teknik" />
+          </div>
+
+          <div class="field">
+            <label for="program">Program Studi</label>
+            <input type="text" id="program" name="program" placeholder="Contoh: Teknik Informatika" required />
+          </div>
+
+          <div class="field">
+            <label for="entryYear">Tahun Masuk</label>
+            <input type="text" id="entryYear" name="entryYear" placeholder="Contoh: 2020" />
+          </div>
+
+          <div class="field">
+            <label for="graduationDate">Tanggal Lulus</label>
+            <input type="text" id="graduationDate" name="graduationDate" placeholder="Contoh: 1 Juli 2000" />
+          </div>
+
+          <div class="field">
+            <label for="graduationYear">Tahun Lulus</label>
+            <input type="text" id="graduationYear" name="graduationYear" placeholder="Contoh: 2023" required />
+          </div>
+
+          <div class="form-section">
+            <h3>Kontak & Media Sosial</h3>
+            <p>Isi alamat sosial media alumni untuk kebutuhan tracer study.</p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Contoh: alumni@email.com" />
+          </div>
+
+          <div class="field">
+            <label for="phone">No. HP</label>
+            <input type="tel" id="phone" name="phone" placeholder="Contoh: 08123456789" />
+          </div>
+
+          <div class="field">
+            <label for="socialLinkedin">LinkedIn</label>
+            <input type="url" id="socialLinkedin" name="socialLinkedin" placeholder="Contoh: https://linkedin.com/in/nama" />
+          </div>
+
+          <div class="field">
+            <label for="socialInstagram">Instagram</label>
+            <input type="text" id="socialInstagram" name="socialInstagram" placeholder="Contoh: @nama" />
+          </div>
+
+          <div class="field">
+            <label for="socialFacebook">Facebook</label>
+            <input type="text" id="socialFacebook" name="socialFacebook" placeholder="Contoh: facebook.com/nama" />
+          </div>
+
+          <div class="field">
+            <label for="socialTiktok">TikTok</label>
+            <input type="text" id="socialTiktok" name="socialTiktok" placeholder="Contoh: @nama" />
+          </div>
+
+          <div class="form-section">
+            <h3>Informasi Pekerjaan</h3>
+            <p>Lengkapi status pekerjaan alumni saat ini.</p>
+          </div>
+
+          <div class="field">
+            <label for="position">Posisi</label>
+            <input type="text" id="position" name="position" placeholder="Contoh: Software Engineer" />
+          </div>
+
+          <div class="field">
+            <label for="workplace">Tempat Bekerja</label>
+            <input type="text" id="workplace" name="workplace" placeholder="Contoh: PT Teknologi Maju" />
+          </div>
+
+          <div class="field">
+            <label for="workplaceAddress">Alamat Bekerja</label>
+            <input type="text" id="workplaceAddress" name="workplaceAddress" placeholder="Contoh: Jakarta" />
+          </div>
+
+          <div class="field">
+            <label for="employmentType">Status Pekerjaan</label>
+            <select id="employmentType" name="employmentType">
+              <option value="" selected>Pilih status</option>
+              <option value="PNS">PNS</option>
+              <option value="Swasta">Swasta</option>
+              <option value="Wirausaha">Wirausaha</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="workplaceSocialMedia">Sosial Media Tempat Bekerja</label>
+            <input type="text" id="workplaceSocialMedia" name="workplaceSocialMedia" placeholder="Contoh: @perusahaan" />
+          </div>
+
+          <div class="form-section">
+            <h3>Status Pelacakan</h3>
+            <p>Tentukan status tracer study alumni.</p>
+          </div>
+
+          <div class="field">
+            <label for="status">Status Pelacakan</label>
+            <select id="status" name="status" required>
+              <option value="Teridentifikasi">Teridentifikasi</option>
+              <option value="Perlu Verifikasi">Perlu Verifikasi</option>
+              <option value="Belum Dilacak" selected>Belum Dilacak</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn primary" id="submitBtn">Simpan Data</button>
+        </form>
+
+        <p id="statusMessage" class="status">Siap menerima input data.</p>
+      </section></main>
+  </div>
+
+  <div id="loginModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <div class="modal-content">
+      <h2 id="loginTitle">Login Admin</h2>
+      <p class="modal-subtitle">Masuk untuk mengelola data alumni.</p>
+      <form id="loginForm" class="modal-form">
+        <div class="field">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" autocomplete="off" required />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <p id="loginError" class="status error hidden">Username atau password salah.</p>
+        <div class="modal-actions">
+          <button type="button" id="cancelLogin" class="btn ghost">Batal</button>
+          <button type="submit" class="btn primary">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="detailModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="modal-content modal-wide">
+      <div class="modal-header">
+        <div>
+          <h2 id="detailTitle">Detail Alumni</h2>
+          <p id="detailName" class="modal-subtitle">-</p>
+        </div>
+        <button type="button" id="closeDetail" class="btn ghost">Tutup</button>
+      </div>
+      <div id="detailBody" class="detail-grid"></div>
+    </div>
+  </div>
+
+    <script src="alumni-data-normalizer.js?v=alias-and-fallback-years-20260501"></script>
+    <script src="script.js?v=main-fast-20260501"></script>
+  </body>
+</html>
