@@ -1,188 +1,73 @@
-# Sistem Pelacakan Alumni
+# Sistem Pelacakan Alumni UMM
 
-Dashboard pelacakan alumni berbasis React + Vite untuk kebutuhan pembelajaran.  
-Aplikasi ini menampilkan data alumni, pencarian data, statistik ringkas, login sederhana, serta form input data alumni.
+Dashboard pelacakan alumni berbasis React + Vite dan Supabase, dirancang khusus untuk mengelola, melacak, dan memverifikasi lebih dari 142.292 data alumni Universitas Muhammadiyah Malang (2000-2025). 
 
-## Fitur Utama
+Aplikasi ini sangat cocok digunakan untuk **Data Enrichment** (Pengayaan Data) seperti pada penugasan Daily Project Rekayasa Kebutuhan, di mana data dasar dilengkapi dengan informasi kontak, sosial media, dan pekerjaan.
 
-- Login aplikasi
-- Data alumni dimuat otomatis dari file `alumni.json`
-- Statistik ringkas alumni
-- Pencarian data alumni tanpa menampilkan daftar massal
-- Panel detail alumni untuk akses data sensitif yang lebih terkontrol
-- Pagination hasil pencarian
-- Form tambah data alumni
-- Import Excel manual sebagai cadangan
-- Tampilan dashboard yang sudah diperbarui
-- Validasi input dasar untuk email, nomor HP, dan status pelacakan
+## 🌟 Fitur Utama
 
-## Akun Login
+- **Pencarian Real-Time (Supabase)**: Pencarian cepat berdasarkan Nama, NIM, Fakultas, Jurusan, dan Email langsung dari database Supabase.
+- **Quick Search Links**: Di dalam panel detail, sistem akan *mengenerate* URL pencarian otomatis ke Google, LinkedIn, Instagram, Facebook, dan PDDIKTI berdasarkan nama alumni untuk mempercepat proses investigasi manual.
+- **Manajemen Status Pelacakan**: Ubah status dari "Belum Dilacak", "Perlu Verifikasi", hingga "Teridentifikasi".
+- **Statistik Dashboard**: Hitungan *real-time* jumlah alumni yang ditemukan dan kontak yang tersedia dari hasil pencarian.
+- **Pipeline Data Otomatis**: Dilengkapi dengan berbagai skrip Node.js otomatis untuk konversi file `.xlsx` mentah ke `.json`, dan mengunggah massal ke Supabase.
 
-Gunakan akun berikut untuk masuk ke sistem:
+## ⚙️ Teknologi yang Digunakan
 
-- Username: `Admin123`
-- Password: `Admin123`
+- **Frontend**: React, Vite, Tailwind CSS
+- **Backend / Database**: Supabase (PostgreSQL)
+- **Data Processing**: Node.js, `xlsx` parser
 
-## Sumber Data
+## 🚀 Cara Menjalankan Project (Frontend)
 
-Data utama dibaca dari file:
+Pastikan kamu sudah menginstal **Node.js**.
 
-```text
-alumni.json
-```
+1. Buka terminal dan masuk ke root folder project:
+   ```powershell
+   cd "C:\Users\ADMIN\Kuliah SMT 6\Rekayasa Kebutuhan\sistem-pelacakan-alumni-main"
+   ```
+2. Instal dependensi frontend (jika belum):
+   ```powershell
+   npm install --prefix react-dashboard
+   ```
+3. Jalankan development server:
+   ```powershell
+   npm run dev
+   ```
+4. Buka browser di `http://localhost:5173` (atau port lain yang muncul di terminal jika 5173 terpakai).
+5. **Akses Login**: 
+   - Username: `Admin123`
+   - Password: `Admin123`
 
-Lokasi file harus berada di root project:
+## 📊 Pipeline Data & Skrip (Untuk Developer / Admin)
 
-```text
-sistem-pelacakan-alumni-main/alumni.json
-```
+Di dalam project ini, terdapat beberapa skrip Node.js (di folder `scripts/`) untuk memproses 142.292 data alumni. Kamu bisa menjalankannya via `npm run`:
 
-Jika file `alumni.json` tersedia dan strukturnya benar, maka setelah login data alumni akan dimuat otomatis sebagai sumber pencarian tanpa perlu sinkronisasi manual.
+| Perintah | Deskripsi |
+|----------|-----------|
+| `npm run pipeline:convert` | Mengonversi file `Alumni 2000-2025.xlsx` mentah ke format `alumni.json` sesuai skema database. |
+| `npm run pipeline:enrich` | Membuat halaman HTML batch (misal 50 data/halaman) yang mempermudah pembagian tugas pelacakan. |
+| `npm run pipeline:merge` | Menggabungkan hasil data yang sudah ditemukan secara manual kembali ke file utama `alumni.json`. |
+| `npm run pipeline:enrich-stats`| Melihat statistik *coverage* pengisian data saat ini. |
+| `node scripts/upload_to_supabase.js` | Mengunggah/update seluruh data (142 ribu+) dari `alumni.json` ke tabel `alumni` di Supabase. |
 
-## Struktur Data yang Didukung
+## 🗄️ Struktur Database (Supabase)
 
-File `alumni.json` mendukung array objek alumni dengan kolom seperti:
+Tabel `alumni` di Supabase menggunakan skema berikut:
+- **Identitas Dasar**: `id`, `name`, `nim`, `fakultas`, `jurusan`, `tahunMasuk`, `tahunLulus`
+- **Data Enrichment (8 Item Target)**: 
+  - Sosial Media: `linkedin`, `instagram`, `facebook`, `tiktok`
+  - Kontak: `email`, `noHp`
+  - Pekerjaan: `tempatBekerja`, `alamatBekerja`, `posisi`, `kategoriKarier`, `workplace_social`
+- **Sistem**: `status` (Belum Dilacak, Perlu Verifikasi, Teridentifikasi)
 
-```json
-[
-  {
-    "nama": "Nama Alumni",
-    "nim": "2001123456",
-    "fakultas": "Ekonomi",
-    "jurusan": "Akuntansi",
-    "tahunMasuk": "2020",
-    "tanggalLulus": "1 Juli 2024",
-    "tahunLulus": "2024",
-    "status": "Teridentifikasi",
-    "email": "nama@email.com",
-    "noHp": "08123456789",
-    "linkedin": "",
-    "instagram": "",
-    "facebook": "",
-    "tiktok": "",
-    "tempatBekerja": "",
-    "alamatBekerja": "",
-    "posisi": "",
-    "kategoriKarier": "Swasta",
-    "sosialTempatKerja": ""
-  }
-]
-```
+## 💡 Alur Kerja Pelacakan Data (Enrichment Workflow)
 
-Kolom bisa lebih banyak, tetapi minimal disarankan ada:
-
-- `nama`
-- `nim`
-- `fakultas`
-- `jurusan`
-- `tahunMasuk`
-- `tanggalLulus`
-- `tahunLulus`
-- `status`
-
-## Cara Menjalankan Project
-
-Jalankan semua perintah dari root project:
-
-```powershell
-cd "C:\Users\ADMIN\Kuliah SMT 6\Rekayasa Kebutuhan\sistem-pelacakan-alumni-main"
-```
-
-### 1. Install dependency frontend
-
-```powershell
-npm install --prefix react-dashboard
-```
-
-### 2. Jalankan mode development dari root project
-
-```powershell
-npm run dev
-```
-
-Setelah itu buka:
-
-```text
-http://localhost:5173
-```
-
-## Build dan Preview
-
-Masih bisa dijalankan dari root project:
-
-```powershell
-npm run build
-npm run preview
-```
-
-## Cara Tes Aplikasi
-
-Langkah yang disarankan untuk pengujian:
-
-1. Pastikan file `alumni.json` ada di root project.
-2. Jalankan `npm install --prefix react-dashboard`.
-3. Jalankan `npm run dev` dari root project.
-4. Buka `http://localhost:5173`.
-5. Login dengan akun `Admin123`.
-6. Pastikan statistik dashboard berhasil dimuat.
-7. Coba fitur pencarian dengan nama, NIM, jurusan, atau email.
-8. Pilih salah satu hasil pencarian lalu periksa panel detail alumni.
-9. Coba tombol import Excel jika ingin mengganti isi data secara manual.
-10. Coba form tambah data alumni untuk memastikan input baru masuk ke sistem.
-
-## Tabel Pengujian
-
-| No | Skenario Pengujian | Langkah Uji | Hasil yang Diharapkan | Status |
-|----|--------------------|-------------|------------------------|--------|
-| 1 | Menjalankan aplikasi dari root project | Jalankan `npm run dev` dari folder `sistem-pelacakan-alumni-main` | Aplikasi berjalan di `http://localhost:5173` | Berhasil |
-| 2 | Login ke sistem | Masukkan username `Admin123` dan password `Admin123` | Pengguna berhasil masuk ke dashboard | Berhasil |
-| 3 | Memuat data alumni otomatis | Login ke sistem saat file `alumni.json` tersedia di root project | Statistik dan sumber data aktif tanpa sinkronisasi manual | Berhasil |
-| 4 | Menampilkan total alumni | Buka dashboard setelah data berhasil dimuat | Nilai `Total Alumni` sesuai jumlah data pada `alumni.json` | Berhasil |
-| 5 | Menahan daftar massal alumni | Masuk ke dashboard tanpa mengisi kolom pencarian | Tabel tidak menampilkan daftar alumni massal | Berhasil |
-| 6 | Melakukan pencarian alumni | Isi kolom pencarian dengan nama, NIM, jurusan, atau email | Tabel menampilkan data yang sesuai kata kunci pencarian | Berhasil |
-| 7 | Membuka detail alumni | Klik tombol `Lihat Detail` pada salah satu hasil pencarian | Panel detail menampilkan informasi alumni terpilih | Berhasil |
-| 8 | Pagination data alumni | Klik tombol `Sebelumnya` dan `Berikutnya` pada area pencarian | Data tabel berpindah halaman sesuai navigasi | Berhasil |
-| 9 | Menambah data alumni baru | Isi form tambah data alumni lalu klik `Simpan Data Alumni` | Data baru masuk ke sistem sesuai validasi input | Berhasil |
-| 10 | Import data dari file Excel | Klik `Pilih File Excel` lalu pilih file `.xlsx` atau `.xls` | Data pada dashboard diperbarui sesuai isi file Excel | Berhasil |
-| 11 | Memuat ulang data utama | Klik tombol `Muat Ulang alumni.json` | Data dashboard kembali mengikuti isi file `alumni.json` | Berhasil |
-| 12 | Menampilkan pesan saat data pencarian kosong | Masukkan kata kunci yang tidak ada di data | Tabel menampilkan pesan bahwa data tidak ditemukan | Berhasil |
-
-## Fitur Pencarian
-
-Pencarian dapat digunakan untuk mencari berdasarkan:
-
-- Nama
-- NIM
-- Fakultas
-- Jurusan
-- Status
-- Email
-- No HP
-- Tempat bekerja
-- Posisi
-
-## Catatan Import Excel
-
-Import Excel tetap tersedia sebagai cadangan jika ingin mengganti isi data tanpa mengubah `alumni.json`.
-
-Format file yang didukung:
-
-- `.xlsx`
-- `.xls`
-
-## Catatan Privasi
-
-Data alumni pada sistem ini digunakan untuk kepentingan pembelajaran/internal.  
-Dilarang menyebarkan data pribadi alumni untuk kepentingan lain.
-
-## Teknologi
-
-- React
-- Vite
-- Tailwind CSS
-
-## Catatan Tambahan
-
-- `npm run dev` sudah bisa dijalankan dari root project.
-- Jika data tidak berubah, lakukan refresh browser dengan `Ctrl + F5`.
-- Jika sebelumnya pernah login dan ada sesi tersimpan, logout lalu login kembali untuk pengujian ulang.
+Bagi kamu yang mengerjakan pelacakan data, ikuti langkah berikut:
+1. Buka aplikasi web dan login sebagai Admin.
+2. Gunakan fitur pencarian untuk mencari nama atau angkatan tertentu (misal: cari nama teman, atau cari "Informatika").
+3. Klik **Detail** pada alumni yang dituju.
+4. Gunakan tombol berwarna di bagian **"Cari Alumni di Internet"** (🔍 Google, 💼 LinkedIn, dll) untuk memicu pencarian spesifik ke jejaring sosial.
+5. Jika menemukan kecocokan data, tutup panel detail, klik **Edit** pada row alumni tersebut.
+6. Masukkan temuan ke form (simpan link LinkedIn, nama tempat kerja, email, dll), lalu ubah status menjadi "Teridentifikasi".
+7. Simpan data. Data akan otomatis terupdate di Supabase.
